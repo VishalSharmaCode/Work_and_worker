@@ -184,10 +184,39 @@ class _SignUp_WorkerState extends State<SignUp_Worker> {
 
               // --- Name as per Aadhar ---
               const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Name as per Aadhar',
-                icon: Icons.person,
-                type: TextInputType.name,
+              Container(
+                height: 60,
+                width: 325,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(217, 217, 217, 1.0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextField(
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    labelText: 'Name as per Aadhar',
+                    prefixIcon: const Icon(Icons.person),
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 22,
+                      horizontal: 15,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      // This creates the line around the field
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                  ),
+                ),
               ),
 
               // --- Work Profession (Searchable Dropdown) ---
@@ -196,17 +225,15 @@ class _SignUp_WorkerState extends State<SignUp_Worker> {
                 width: 325,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(217, 217, 217, 1.0),
+                  color: Color.fromRGBO(217, 217, 217, 1.0),
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.black, width: 1),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2<String>(
                     isExpanded: true,
-                    hint: const Text(
-                      'Select Profession',
-                      style: TextStyle(color: Colors.black87),
-                    ),
+                    hint: const Text('Select Profession'),
+
                     items: professions
                         .map(
                           (item) => DropdownMenuItem<String>(
@@ -243,6 +270,10 @@ class _SignUp_WorkerState extends State<SignUp_Worker> {
                             hintText: 'Search profession...',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
+                              borderSide: const BorderSide(
+                                color: Colors.black,
+                                width: 1,
+                              ),
                             ),
                           ),
                         ),
@@ -259,21 +290,56 @@ class _SignUp_WorkerState extends State<SignUp_Worker> {
 
               // --- Aadhar OTP Validation ---
               const SizedBox(height: 10),
-              _buildTextField(
-                label: "Enter OTP",
-                icon: Icons.lock_clock,
-                type: TextInputType.number,
-                limit: 6,
+              Container(
+                height: 60,
+                width: 325,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(217, 217, 217, 1.0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: 'OTP',
+                    // prefixIcon: Icons.lock_clock,
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 22,
+                      horizontal: 15,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      // This creates the line around the field
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                  ),
+                ),
               ),
 
-              const SizedBox(height: 30),
+              // const SizedBox(height: 10),
+              // _buildTextField(
+              //   label: "Enter OTP",
+              //   icon: Icons.lock_clock,
+              //   type: TextInputType.number,
+              //   limit: 6,
+              // ),
+              const SizedBox(height: 20),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(217, 217, 217, 1.0),
                   minimumSize: const Size(224, 60),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   side: const BorderSide(color: Colors.black, width: 1),
                 ),
@@ -290,6 +356,14 @@ class _SignUp_WorkerState extends State<SignUp_Worker> {
                 ),
               ),
               const SizedBox(height: 40),
+              Container(
+                child: Row(
+                  children: [
+                    const Text("Don't Have An Account??"),
+                    TextButton(onPressed: () {}, child: Text("Click")),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
