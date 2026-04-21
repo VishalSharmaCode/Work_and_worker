@@ -182,9 +182,20 @@ class LoginWorker extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (context) => SignUp_Worker()),
                 ),
-                child: Text(
-                  "Don't have Account? SignUp",
-                  style: TextStyle(color: Colors.red),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't Have An Account??"),
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUp_Worker(),
+                        ),
+                      ),
+                      child: Text("Sign-Up"), 
+                    ),
+                  ],
                 ),
               ),
             ],
